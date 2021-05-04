@@ -1,0 +1,2 @@
+aqui temos uma estrutura de projeto do SpringBoot feia
+automaticamente pelo 'Spring Initializr'
