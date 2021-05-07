@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.devsuperior.dsvendas.dto.SellerDTO;
-import com.devsuperior.dsvendas.entities.Sale;
 import com.devsuperior.dsvendas.entities.Seller;
 import com.devsuperior.dsvendas.repositories.SellerRepository;
 
