@@ -28,7 +28,7 @@ useEffect(() => {
         setChartData({labels :myLabels, series: mySeries});
         //chartData = {labels :myLabels, series: mySeries}; // entao agora vou chamar o setChartData
 
-        console.log(chartData)  //.data é o corpo da msg da pra inspecionar no browser
+        //console.log(chartData)  //.data é o corpo da msg da pra inspecionar no browser
     });  // vai executar qdo a resposta chegar com sucesso
 }, [] ); //funcaoo lambida, lista de objetos que o useFfect vai observar ou seja qdo mudar o valor vai exec novamente, a principio vamos deixar vazio [].
 
@@ -48,10 +48,13 @@ axios.get(`${BASE_URL}/sales/amount-by-seller`)  // requisicao assincrona - tela
 */
 
 
+/*
+//usado so pra visualizar erro e apos comentado todo bloco.
 const mockData = {   // pra ver o erro nao vamos uar o mockData la no return - observer resultado no browser - const é dado que nao muda , let muda.
     series: [477138, 499928, 444867, 220426, 473088],
     labels: ['Anakin', 'Barry Allen', 'Kal-El', 'Logan', 'Padmé']
 }
+*/
 
 const options = {
     legend: {

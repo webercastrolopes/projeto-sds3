@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
-import { SaleSuccess, SaleSum } from 'types/sales';
+//import { SaleSuccess, SaleSum } from 'types/sales';   /erro compilacao 'saleSum nunca usado foi retirado.
+import { SaleSuccess  } from 'types/sales';
 import { round } from 'utils/format';
 import { BASE_URL } from 'utils/request';
 
@@ -76,6 +77,8 @@ const options = {
     },
 };
 
+// todo bloco 'mockData' foi comentado porque foi usado so no começo pra mostrar erro e forma de corrigir
+/*
 const mockData = {
     labels: {
         categories: ['Anakin', 'Barry Allen', 'Kal-El', 'Logan', 'Padmé']
@@ -87,6 +90,7 @@ const mockData = {
         }
     ]
 };
+*/
     return (
         <Chart
             //options={{...options, xaxis: mockData.labels}}
