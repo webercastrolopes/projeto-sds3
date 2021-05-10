@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 import { SaleSum } from 'types/sales';
 import { BASE_URL } from 'utils/request';
@@ -11,21 +12,27 @@ type ChartData = {
 
 const DonutChart = () => {    /* Componente - semelhante a criação de função forma anonima 'expressao lambda'*/
 
-//forma errada  - depois vamos fazer com huks pra ficar 'bonitao' e corrigir esse erro.
-let chartData : ChartData = {labels: [], series: []};
 
-//forma errada
-axios.get(`${BASE_URL}/sales/amount-by-seller`)  // requisicao assincrona - tela continua rodando mesmo com retorno da API
+    const [chartData, setChartData] = useState<ChartData>({labels: [], series: []});  //nome do estado e funcao que vai alterar o valor deste dado
+    //let chartData : ChartData = {labels: [], series: []}; // forma errada subst pela de cima.
+
+
+useEffect(() => {
+
+    axios.get(`${BASE_URL}/sales/amount-by-seller`)  // requisicao assincrona - tela continua rodando mesmo com retorno da API
     .then((response) => {
         const data = response.data as SaleSum[]  // fiz este casting pra acessar cada um dos obj dele com meu pam
         const myLabels = data.map(x => x.sellerName);
         const mySeries = data.map(x => x.sum);
 
-        chartData = {labels :myLabels, series: mySeries};
+        setChartData({labels :myLabels, series: mySeries});
+        //chartData = {labels :myLabels, series: mySeries}; // entao agora vou chamar o setChartData
 
         console.log(chartData)  //.data é o corpo da msg da pra inspecionar no browser
-
     });  // vai executar qdo a resposta chegar com sucesso
+}, [] ); //funcaoo lambida, lista de objetos que o useFfect vai observar ou seja qdo mudar o valor vai exec novamente, a principio vamos deixar vazio [].
+
+    
 
 
 /*
